@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B314DC14-F933-4B1B-BECD-402C0358257B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Contoso.Data</RootNamespace>
+    <AssemblyName>Contoso.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContosoDbContext.cs" />
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\201704191904180_InitialDB.cs" />
+    <Compile Include="Migrations\201704191904180_InitialDB.Designer.cs">
+      <DependentUpon>201704191904180_InitialDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704261809515_PeopleTableUNPW.cs" />
+    <Compile Include="Migrations\201704261809515_PeopleTableUNPW.Designer.cs">
+      <DependentUpon>201704261809515_PeopleTableUNPW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041708016_RolesPersons.cs" />
+    <Compile Include="Migrations\201705041708016_RolesPersons.Designer.cs">
+      <DependentUpon>201705041708016_RolesPersons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041722560_PersonAccountColumns.cs" />
+    <Compile Include="Migrations\201705041722560_PersonAccountColumns.Designer.cs">
+      <DependentUpon>201705041722560_PersonAccountColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802131712530_ChangeAgoToDob.cs" />
+    <Compile Include="Migrations\201802131712530_ChangeAgoToDob.Designer.cs">
+      <DependentUpon>201802131712530_ChangeAgoToDob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806042032135_DOB_nullable.cs" />
+    <Compile Include="Migrations\201806042032135_DOB_nullable.Designer.cs">
+      <DependentUpon>201806042032135_DOB_nullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806042034197_datetime2.cs" />
+    <Compile Include="Migrations\201806042034197_datetime2.Designer.cs">
+      <DependentUpon>201806042034197_datetime2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806042202032_datetime2_instructor.cs" />
+    <Compile Include="Migrations\201806042202032_datetime2_instructor.Designer.cs">
+      <DependentUpon>201806042202032_datetime2_instructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CourseRepository.cs" />
+    <Compile Include="Repositories\DepartmentRepository.cs" />
+    <Compile Include="Repositories\InstructorRepository.cs" />
+    <Compile Include="Repositories\PersonRepository.cs" />
+    <Compile Include="Repositories\PersonRoleRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\StudentRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Contoso.Model\Contoso.Model.csproj">
+      <Project>{71A64967-9119-4407-A773-BDAA1A9A6DB0}</Project>
+      <Name>Contoso.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201704191904180_InitialDB.resx">
+      <DependentUpon>201704191904180_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704261809515_PeopleTableUNPW.resx">
+      <DependentUpon>201704261809515_PeopleTableUNPW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041708016_RolesPersons.resx">
+      <DependentUpon>201705041708016_RolesPersons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041722560_PersonAccountColumns.resx">
+      <DependentUpon>201705041722560_PersonAccountColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802131712530_ChangeAgoToDob.resx">
+      <DependentUpon>201802131712530_ChangeAgoToDob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806042032135_DOB_nullable.resx">
+      <DependentUpon>201806042032135_DOB_nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806042034197_datetime2.resx">
+      <DependentUpon>201806042034197_datetime2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806042202032_datetime2_instructor.resx">
+      <DependentUpon>201806042202032_datetime2_instructor.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
